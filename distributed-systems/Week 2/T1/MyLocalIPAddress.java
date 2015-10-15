@@ -6,15 +6,14 @@ public class MyLocalIPAddress
 	{
 		try
 		{
-          	InetAddress address = InetAddress.getLocalHost();
- 			System.out.println(address);
-        }
-        catch (UnknownHostException uhEx)
-		{
-            System.out.println(
-					"Could not find local address!");
-        }
-
+      netAddress address = InetAddress.getLocalHost();
+      System.out.println(address);
     }
+    catch (UnknownHostException uhEx)
+		{
+      System.out.println(
+			Could not find local address!");
+    }
+  }
 }
 
