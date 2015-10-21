@@ -1,0 +1,30 @@
+Tables in a normalized state
+
+Address
+- ZipCode *
+- Street
+- State
+
+Application
+- App_No **
+- App_Year **
+- PriorSchoolId (FK)
+- References (FK)
+
+References
+- ReferenceName *
+- ReferenceStatement *
+- App_No (FK)
+- RefInstitution
+
+Student
+- StudentID *
+- ZipCode (FK)
+- App_No (FK)
+- PriorSchoolId (FK)
+- StudentName
+- GPA
+
+Prior Schools
+- PriorSchoolId*
+- PriorSchoolAddr

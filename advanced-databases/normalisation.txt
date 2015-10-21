@@ -1,0 +1,77 @@
+What is normalization?
+
+A set (table) X contains some variables {y1, y2, ... yN}. The content of the set X can be described by one and only one value (Primary Key) and not any other subset of X.
+
+First order normalization :
+  - All attributes in a relation must have atomic domains
+  - i.e. A single cell may only have one value
+
+# Without Normailzation
+
+Course        Content
+Programming   Java, C++
+Web           HTML, PHP, ASP
+
+# With Normalization
+
+Course        Content
+Programming   Java
+Programming   C++
+Web           HTML
+Web           PHP
+Web           ASP
+
+
+Second order of Normalization
+  - Every non-prime attribute should be functionally dependant on a prime key attribute
+  - Prime Attribute -> Primary Key
+  - Non-Prime -> Everything else
+
+# Without Normailzation
+
+Student Project
+Stu_ID*    Proj_ID*   Stu_Name    ProjName
+
+Here Stu_ID and Proj_ID are the primary keys. According to the second rule all non-prime attributes must be dependant on all primary keys and not any individual key. That would be called partial dependency.
+
+To solve this we split up the tables as such:
+
+Student
+Stu_ID*    Stu_Name    Proj_ID
+
+Project
+Proj_ID*   Proj_Name
+
+
+Third order of Normalization
+  - For a relation to be in the third normal form, it must be in second normal form and satisfy the following:
+    - No non-prime attribute is transitively dependat on prime key attributes
+    - For any non-trivial functional dependency X -> A then either
+      - X us a superkey or A is a prime attribute
+
+Student_Detail
+Stu_ID*    Stu_Name    City    Zip
+
+We find in the above Student_Detail relation, Stu_ID is the key and only prime key attribute. However City can also be defined by Zip. Moreover Zip can be defined by the primary key. Therefore we have a transitive dependency such that Stu_ID -> Zip -> City. To bring this relation into third normal form we must break this dependency.
+
+Student_Detail
+Stu_ID*    Stu_Name    Zip
+
+Zip_Codes
+Zip*       City
+
+
+Boyce-Codd Normal Form (BCNF)
+An extension of the Third Normal Form on stricter terms. It states that :
+
+  - For any non-trivial functional dependency, X -> A, X must be a super-key
+
+In the above (third normal form example), Stu_ID is the super-key in the relation Student_Detail and Zip is the super-key in the relation ZipCodes. So,
+
+Stu_ID -> Stu_Name, Zip
+
+&
+
+Zip -> City
+
+This confirms that both relations are in BCNF
