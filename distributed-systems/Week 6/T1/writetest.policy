@@ -1,0 +1,7 @@
+/* AUTOMATICALLY GENERATED ON Thu Oct 22 11:28:49 IST 2015*/
+/* DO NOT EDIT */
+
+grant {
+  permission java.io.FilePermission "writetest", "write";
+};
+
