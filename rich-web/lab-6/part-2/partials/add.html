@@ -1,0 +1,13 @@
+<h2>Add a new Contact</h2>
+<a ng-click="back()"> < Back </a>
+<form ng-controller="AddCtrl" ng-submit="add(contact)">
+  <div>
+    <label>Name</label>:
+    <input ng-model="contact.name">
+  </div>
+  <div>
+    <label>Phone Number</label>:
+    <input ng-model="contact.phone">
+  </div>
+  <input type="submit" value="Submit">
+</form>
